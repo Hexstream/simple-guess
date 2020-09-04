@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="canonical" href="https://www.hexstreamsoft.com/libraries/simple-guess/" />
+    <meta name="author" content="Jean-Philippe Paradis" />
+    <link rel="author" href="https://abc.hexstream.xyz/" />
+    <link rel="license" href="https://www.hexstreamsoft.com/UNLICENSE" />
+    <meta name="description" content="simple-guess defines a simple extensible protocol for computing a guess using advisors." />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>simple-guess | Libraries | HexstreamSoft</title>
+    <link href="https://www.hexstreamsoft.com/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="https://www.hexstreamsoft.com/libraries/libraries.css" rel="stylesheet" type="text/css" />
+    <link href="https://global.hexstreamsoft.com/css/cl-definitions.css" rel="stylesheet" type="text/css" />
+    <script src="https://global.hexstreamsoft.com/scripts/global.js"></script>
+    <script src="https://www.hexstreamsoft.com/scripts/global.js"></script>
+    <script src="https://www.hexstreamsoft.com/libraries/libraries.js" defer></script>
+  </head>
+
+  <body>
+
+    <nav id="top-nav">
+
+      <div class="main">
+
+        <div class="breadcrumbs">
+          <a href="https://www.hexstreamsoft.com/">HexstreamSoft</a>
+          <span class="crumb"><span class="s"> » </span><a href="https://www.hexstreamsoft.com/libraries/">Libraries</a></span>
+          <span class="crumb"><span class="s"> » </span><a class="here">simple-guess</a></span>
+        </div>
+
+        <nav class="tabs" id="meta-nav">
+          <ul>
+            <li><a class="github" href="https://github.com/Hexstream/simple-guess"><span>See on GitHub</span></a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2020-09-04">4 september 2020</time><span>.</span></p>
+
+    </nav>
+
+    <main>
+
+      <header id="page-header">
+        <h1>simple-guess</h1>
+      </header>
+
+      <div class="tags contains-groups">
+        <div class="group prominent">
+          <span class="tag hv license">
+            <span class="h">License<span>:</span></span>
+            <span class="v">Public Domain</span>
+          </span>
+          <span class="s">, </span>
+          <span class="tag hv quicklisp">
+            <span class="h">Load it with Quicklisp<span>:</span></span>
+            <code class="v">(ql:quickload "simple-guess")</code>
+          </span>
+        </div>
+        <div class="group">
+          <span class="tag hv">
+            <span class="h">Library type<span>:</span></span>
+            <span class="v">Protocol</span>
+          </span>
+          <span class="s">, </span>
+          <span class="tag hv">
+            <span class="h">Project complexity<span>:</span></span>
+            <span class="v">Simple</span>
+          </span>
+        </div>
+      </div>
+
+      <nav class="tabs" id="further-info">
+        <ul>
+          <li><a href="https://www.hexstreamsoft.com/libraries/releases/latest-versions/#simple-guess">Latest release</a></li>
+          <li><a href="https://www.hexstreamsoft.com/libraries/dependencies/#simple-guess">Dependencies</a></li>
+        </ul>
+        <ul>
+          <li><a href="https://www.hexstreamsoft.com/libraries/external-pages-xref/#simple-guess">External library pages</a></li>
+        </ul>
+      </nav>
+
+      <section id="introduction">
+
+        <p><dfn><code class="relevant">simple-guess</code></dfn> defines a simple extensible protocol for computing a guess using advisors.</p>
+
+      </section>
+
+      <nav class="tabs">
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#dictionary">Dictionary</a></li>
+        </ul>
+      </nav>
+
+      <section id="overview">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#overview" class="anchor">⚓</a>
+          </span>
+          <span class="breadcrumbs">
+            <a class="here">Overview</a>
+          </span>
+        </h1>
+
+        <p>I'm using this in an upcoming library to automatically determine the correct metaclass to use by analyzing the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm" target="_blank">defclass</a> form (after a trivial bit of package-local configuration).</p>
+
+      </section>
+
+      <section id="dictionary">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#dictionary" class="anchor">⚓</a>
+          </span>
+          <span class="breadcrumbs">
+            <a class="here">Dictionary</a>
+          </span>
+        </h1>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#dictionary_simple-guess"><span class="type">Package</span> <code>simple-guess</code></a></li>
+            <li><a href="#dictionary_core">Core</a></li>
+            <li><a href="#dictionary_advisors">Advisors</a></li>
+          </ul>
+        </nav>
+
+        <section id="dictionary_simple-guess">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#dictionary_simple-guess" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#dictionary">Dictionary</a>
+              <span class="crumb"><span class="s"> » </span><a class="here">simple-guess</a></span>
+            </span>
+          </h1>
+
+          <article class="package definition">
+
+            <h1><span class="type">Package</span> <span class="name self">simple-guess</span></h1>
+
+            <section class="description">
+              <h1>Description</h1>
+              <p>One should normally import a single symbol from this package, <code class="relevant"><a href="#dictionary_inquire">inquire</a></code>.<br />Any other symbols from this package should normally be explicitly qualified, such as <code class="relevant"><a href="#dictionary_eager-advisor">simple-guess:eager-advisor</a></code>.<br />Don't <code>(:use)</code>!</p>
+            </section>
+
+          </article>
+
+        </section>
+
+        <section id="dictionary_core">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#dictionary_core" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#dictionary">Dictionary</a>
+              <span class="crumb"><span class="s"> » </span><a class="here">Core</a></span>
+            </span>
+          </h1>
+
+          <nav class="tabs">
+            <ul>
+              <li><a href="#dictionary_manager"><span class="type">Class</span> <code>manager</code></a></li>
+              <li><a href="#dictionary_advisor"><span class="type">Class</span> <code>advisor</code></a></li>
+              <li><a href="#dictionary_inquire"><span class="type">Generic Function</span> <code>inquire</code></a></li>
+            </ul>
+          </nav>
+
+          <section id="dictionary_manager">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_manager" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_core">Core</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">manager</a></span>
+              </span>
+            </h1>
+
+            <article class="class definition">
+
+              <h1><span class="type">Class</span> <span class="name self">simple-guess:manager</span></h1>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>The manager basically represents the type of inquiry, and is normally passed directly as the <var>manager</var> to any subinquiries.</p>
+                <p>The manager is usually stateless, in which case it can be reused across top-level inquiries.</p>
+                <p>Alternatively, the manager could manage some global state for the top-level inquiry.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_advisor">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_advisor" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_core">Core</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">advisor</a></span>
+              </span>
+            </h1>
+
+            <article class="class definition">
+
+              <h1><span class="type">Class</span> <span class="name self">simple-guess:advisor</span></h1>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>An advisor is an object that returns <var>advice</var> (an object) given a <var>query</var> (a plist), or <code>nil</code> if the advisor has no particular opinion.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_inquire">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_inquire" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_core">Core</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">inquire</a></span>
+              </span>
+            </h1>
+
+            <article class="generic-function definition">
+
+              <h1><span class="type">Generic Function</span> <span class="name self">inquire</span></h1>
+
+              <p class="args-and-retvals"><var>manager</var> <var>advisor</var> &amp;rest <var>query</var> &amp;key &amp;allow-other-keys =&gt; <var>advice</var></p>
+
+              <section class="arguments-and-values">
+                <h1>Arguments and Values</h1>
+                <ul>
+                  <li><var>manager</var> -- A <code class="relevant"><a href="#dictionary_manager">manager</a></code>.</li>
+                  <li><var>advisor</var> -- An <code class="relevant"><a href="#dictionary_advisor">advisor</a></code>.</li>
+                  <li><var>query</var> -- A plist.</li>
+                </ul>
+              </section>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>The <var>advisor</var> ponders <var>query</var> and returns <var>advice</var> to the best of its knowledge, or <code>nil</code> if it doesn't have a particular opinion. (Use <a href="https://www.hexstreamsoft.com/libraries/fakenil/" target="_blank">fakenil</a> if you need to represent <code>nil</code> as advice.)</p>
+                <p>The <var>advisor</var> is free to compute its <var>advice</var> any way it likes, including querying subadvisors (using the same <var>query</var>, an amended <var>query</var>, or an unrelated query) and combining their results in some way.</p>
+              </section>
+
+              <section class="methods">
+                <h1>Methods</h1>
+
+                <article class="method definition" id="dictionary_inquire_manager_constant-advisor">
+
+                  <h1><span class="type">Method</span> <span class="name self">inquire</span></h1>
+
+                  <p class="args-and-retvals">(<var>manager</var> <code class="specializer relevant"><a href="#dictionary_manager">simple-guess:manager</a></code>) (<var>advisor</var> <code class="specializer relevant"><a href="#dictionary_constant-advisor">simple-guess:constant-advisor</a></code>) &amp;rest <var>query</var> =&gt; <var>advice</var></p>
+
+                  <section class="description">
+                    <h1>Description</h1>
+                    <p>Returns the <var>advisor</var>'s <code class="relevant"><a href="#dictionary_advice">simple-guess:advice</a></code>.</p>
+                  </section>
+
+                </article>
+
+                <article class="method definition" id="dictionary_inquire_manager_eager-advisor">
+
+                  <h1><span class="type">Method</span> <span class="name self">inquire</span></h1>
+
+                  <p class="args-and-retvals">(<var>manager</var> <code class="specializer relevant"><a href="#dictionary_manager">simple-guess:manager</a></code>) (<var>advisor</var> <code class="specializer relevant"><a href="#dictionary_eager-advisor">simple-guess:eager-advisor</a></code>) &amp;rest <var>query</var> =&gt; <var>advice</var></p>
+
+                  <section class="description">
+                    <h1>Description</h1>
+                    <p>Queries each of the <var>advisor</var>'s <code class="relevant"><a href="#dictionary_advisors_advisors">simple-guess:advisors</a></code> in turn, returning the first non-nil advice encountered.</p>
+                  </section>
+
+                </article>
+
+                <article class="method definition" id="dictionary_inquire_manager_query-variant-advisor">
+
+                  <h1><span class="type">Method</span> <span class="name self">inquire</span></h1>
+
+                  <p class="args-and-retvals">(<var>manager</var> <code class="specializer relevant"><a href="#dictionary_manager">simple-guess:manager</a></code>) (<var>advisor</var> <code class="specializer relevant"><a href="#dictionary_query-variant-advisor">simple-guess:query-variant-advisor</a></code>) &amp;rest <var>query</var> =&gt; <var>advice</var></p>
+
+                  <section class="description">
+                    <h1>Description</h1>
+                    <p>Calls <code>(apply #'<code class="relevant"><a href="#dictionary_inquire">inquire</a></code> <var>manager</var> (<code class="relevant"><a href="#dictionary_advisors_advisor">simple-guess:advisor</a></code> <var>advisor</var>) (funcall (<code class="relevant"><a href="#dictionary_query-transformer">simple-guess:query-transformer</a></code> <var>advisor</var>) <var>query</var>))</code>.</p>
+                  </section>
+
+                </article>
+
+                <article class="method definition" id="dictionary_inquire_manager_macro-advisor">
+
+                  <h1><span class="type">Method</span> <span class="name self">inquire</span></h1>
+
+                  <p class="args-and-retvals">(<var>manager</var> <code class="specializer relevant"><a href="#dictionary_manager">simple-guess:manager</a></code>) (<var>advisor</var> <code class="specializer relevant"><a href="#dictionary_macro-advisor">simple-guess:macro-advisor</a></code>) &amp;rest <var>query</var> =&gt; <var>advice</var></p>
+
+                  <section class="description">
+                    <h1>Description</h1>
+                    <p>Calls <code>(apply #'<code class="relevant"><a href="#dictionary_inquire">inquire</a></code> <var>manager</var> (<code class="relevant"><a href="#dictionary_expansion">simple-guess:expansion</a></code> <var>advisor</var>) <var>query</var>)</code>.</p>
+                  </section>
+
+                </article>
+
+              </section>
+
+            </article>
+
+          </section>
+
+          <nav class="end-of-section-indicator">
+            <a href="#dictionary_core">
+              "<span>Core</span>" end.
+            </a>
+          </nav>
+
+        </section>
+
+        <section id="dictionary_advisors">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#dictionary_advisors" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#dictionary">Dictionary</a>
+              <span class="crumb"><span class="s"> » </span><a class="here">Advisors</a></span>
+            </span>
+          </h1>
+
+          <nav class="tabs">
+            <ul>
+              <li><a href="#dictionary_advisor-mixin"><span class="type">Class</span> <code>advisor-mixin</code></a></li>
+              <li><a href="#dictionary_advisors_advisor"><span class="type">Generic Function</span> <code>advisor</code></a></li>
+              <li><a href="#dictionary_advisors-mixin"><span class="type">Class</span> <code>advisors-mixin</code></a></li>
+              <li><a href="#dictionary_advisors_advisors"><span class="type">Generic Function</span> <code>advisors</code></a></li>
+            </ul>
+            <ul>
+              <li><a href="#dictionary_*make-advisor-function*"><span class="type">Variable</span> <code>*make-advisor-function*</code></a></li>
+              <li><a href="#dictionary_make-advisor"><span class="type">Function</span> <code>make-advisor</code></a></li>
+            </ul>
+            <ul>
+              <li><a href="#dictionary_constant-advisor"><span class="type">Class</span> <code>constant-advisor</code></a></li>
+              <li><a href="#dictionary_constant-advisor"><span class="type">Function</span> <code>constant-advisor</code></a></li>
+              <li><a href="#dictionary_advice"><span class="type">Generic Function</span> <code>advice</code></a></li>
+            </ul>
+            <ul>
+              <li><a href="#dictionary_eager-advisor"><span class="type">Class</span> <code>eager-advisor</code></a></li>
+              <li><a href="#dictionary_eager-advisor"><span class="type">Function</span> <code>eager-advisor</code></a></li>
+            </ul>
+            <ul>
+              <li><a href="#dictionary_query-variant-advisor"><span class="type">Class</span> <code>query-variant-advisor</code></a></li>
+              <li><a href="#dictionary_query-variant-advisor"><span class="type">Function</span> <code>query-variant-advisor</code></a></li>
+              <li><a href="#dictionary_query-transformer"><span class="type">Generic Function</span> <code>query-transformer</code></a></li>
+            </ul>
+            <ul>
+              <li><a href="#dictionary_macros">Macros</a></li>
+            </ul>
+          </nav>
+
+          <section id="dictionary_advisor-mixin">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_advisor-mixin" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">advisor-mixin</a></span>
+              </span>
+            </h1>
+
+            <article class="class definition">
+
+              <h1><span class="type">Class</span> <span class="name self">simple-guess:advisor-mixin</span></h1>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Slots:</p>
+                <pre><code>((<var>advisor</var> :initarg :advisor
+          :reader <code class="relevant"><a href="#dictionary_advisors_advisor">simple-guess:advisor</a></code>
+          :type <code class="relevant"><a href="#dictionary_advisors_advisor">simple-guess:advisor</a></code>
+          :documentation ":advisor is required."))</code></pre>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_advisors_advisor">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_advisors_advisor" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">advisor</a></span>
+              </span>
+            </h1>
+
+            <article class="generic-function reader definition">
+
+              <h1><span class="type">Generic Function</span> <span class="name self">simple-guess:advisor</span></h1>
+
+              <p class="args-and-retvals"><var>object</var> =&gt; <var>advisor</var></p>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Returns the <var>advisor</var> associated with the <var>object</var>, which is usually an "inner" advisor that is being consulted by the <var>object</var>, the "outer" advisor. A method is defined for <code class="relevant"><a href="#dictionary_advisor-mixin">simple-guess:advisor-mixin</a></code>.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_advisors-mixin">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_advisors-mixin" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">advisors-mixin</a></span>
+              </span>
+            </h1>
+
+            <article class="class definition">
+
+              <h1><span class="type">Class</span> <span class="name self">simple-guess:advisors-mixin</span></h1>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Slots:</p>
+                <pre><code>((<var>advisors</var> :initarg :advisors
+           :reader <code class="relevant"><a href="#dictionary_advisors_advisors">simple-guess:advisors</a></code>
+           :type list
+           :documentation ":advisors is required."))</code></pre>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_advisors_advisors">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_advisors_advisors" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">advisors</a></span>
+              </span>
+            </h1>
+
+            <article class="generic-function reader definition">
+
+              <h1><span class="type">Generic Function</span> <span class="name self">simple-guess:advisor</span></h1>
+
+              <p class="args-and-retvals"><var>object</var> =&gt; <var>advisor</var></p>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Returns the <var>advisors</var> associated with the <var>object</var>, which are usually "inner" advisors that are being consulted by the <var>object</var>, the "outer" advisor. A method is defined for <code class="relevant"><a href="#dictionary_advisors-mixin">simple-guess:advisors-mixin</a></code>.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_*make-advisor-function*">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_*make-advisor-function*" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">*make-advisor-function*</a></span>
+              </span>
+            </h1>
+
+            <article class="variable definition">
+
+              <h1><span class="type">Variable</span> <span class="name self">simple-guess:*make-advisor-function*</span></h1>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_f.htm#function_designator" target="_blank">function designator</a>. The initial value is the function <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_mk_ins.htm" target="_blank">make-instance</a>.</p>
+                <p>As an example, you could bind this variable to a function that forwards to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_mk_ins.htm" target="_blank">make-instance</a>, but returns the <code class="relevant"><a href="#dictionary_expansion">simple-guess:expansion</a></code> directly if the result was an instance of <code class="relevant"><a href="#dictionary_macro-variant">simple-guess:macro-variant</a></code>. This would result in slightly increased query performance, at the cost of somewhat decreased debuggability.</p>
+                <p>Another use-case would be implementing various memoizing schemes, notably for <code class="relevant"><a href="#dictionary_constant-advisor">simple-guess:constant-advisor</a></code>s.</p>
+
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_make-advisor">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_make-advisor" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">make-advisor</a></span>
+              </span>
+            </h1>
+
+            <article class="function definition">
+
+              <h1><span class="type">Function</span> <span class="name self">simple-guess:make-advisor</span></h1>
+
+              <p class="args-and-retvals"><var>advisor-class</var> &amp;rest <var>initargs</var> =&gt; <var>advisor</var></p>
+
+              <section class="arguments-and-values">
+                <h1>Arguments and Values</h1>
+                <ul>
+                  <li><var>advisor-class</var> -- A <a href="file:///home/hexstream/quicklisp/HyperSpec/Body/26_glo_c.htm#class_designator" target="_blank">class designator</a>.</li>
+                  <li><var>initargs</var> -- A plist.</li>
+                  <li><var>advisor</var> -- An <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code>.</li>
+                </ul>
+              </section>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Forwards all arguments to <code class="relevant"><a href="#dictionary_*make-advisor-function*">simple-guess:*make-advisor-function*</a></code>.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_constant-advisor">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_constant-advisor" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">constant-advisor</a></span>
+              </span>
+            </h1>
+
+            <article class="class definition">
+
+              <h1><span class="type">Class</span> <span class="name self">simple-guess:constant-advisor</span></h1>
+
+              <p class="direct-superclasses"><code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code></p>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Slots:</p>
+                <pre><code>((<var>advice</var> :initarg :advice
+         :reader <code class="relevant"><a href="#dictionary_advice">simple-guess:advice</a></code>
+         :initform nil))</code></pre>
+              </section>
+
+            </article>
+
+            <article class="function definition">
+
+              <h1><span class="type">Function</span> <span class="name self">simple-guess:constant-advisor</span></h1>
+
+              <p class="args-and-retvals"><var>advice</var> =&gt; <var>advisor</var></p>
+
+              <section class="arguments-and-values">
+                <h1>Arguments and Values</h1>
+                <ul>
+                  <li><var>advice</var> -- An object.</li>
+                  <li><var>advisor</var> -- An <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code>.</li>
+                </ul>
+              </section>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Calls <code>(<code class="relevant"><a href="#dictionary_make-advisor">simple-guess:make-advisor</a></code> '<code class="relevant"><a href="#dictionary_constant-advisor">simple-guess:constant-advisor</a></code> :advice <var>advice</var>)</code>.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_advice">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_advice" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">advice</a></span>
+              </span>
+            </h1>
+
+            <article class="generic-function reader definition">
+
+              <h1><span class="type">Generic Function</span> <span class="name self">simple-guess:advice</span></h1>
+
+              <p class="args-and-retvals"><var>advisor</var> =&gt; <var>advice</var></p>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Returns the <var>advisor</var>'s <var>advice</var>. A method is defined for <code class="relevant"><a href="#dictionary_constant-advisor">simple-guess:constant-advisor</a></code>.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_eager-advisor">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_eager-advisor" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">eager-advisor</a></span>
+              </span>
+            </h1>
+
+            <article class="class definition">
+
+              <h1><span class="type">Class</span> <span class="name self">simple-guess:eager-advisor</span></h1>
+
+              <p class="direct-superclasses"><code class="relevant"><a href="#dictionary_advisors-mixin">simple-guess:advisors-mixin</a></code>, <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code></p>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Analogous to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_or.htm" target="_blank">or</a>.</p>
+              </section>
+
+            </article>
+
+            <article class="function definition">
+
+              <h1><span class="type">Function</span> <span class="name self">simple-guess:eager-advisor</span></h1>
+
+              <p class="args-and-retvals">&amp;rest <var>advisors</var> =&gt; <var>advisor</var></p>
+
+              <section class="arguments-and-values">
+                <h1>Arguments and Values</h1>
+                <ul>
+                  <li><var>advisors</var> -- A list of <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code> objects.</li>
+                  <li><var>advisor</var> -- An <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code>.</li>
+                </ul>
+              </section>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>If there are no <var>advisors</var>, then return the result of <code>(<code class="relevant"><a href="#dictionary_constant-advisor">simple-guess:constant-advisor</a></code> nil)</code>.</p>
+                <p>If there is only one <var>advisor</var> in <var>advisors</var>, then return <var>advisor</var> after checking that it is indeed an <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code>.</p>
+                <p>Else, call <code>(<code class="relevant"><a href="#dictionary_make-advisor">simple-guess:make-advisor</a></code> '<code class="relevant"><a href="#dictionary_eager-advisor">simple-guess:eager-advisor</a></code> :advisors <var>advisors</var>)</code>.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_query-variant-advisor">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_query-variant-advisor" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">query-variant-advisor</a></span>
+              </span>
+            </h1>
+
+            <article class="class definition">
+
+              <h1><span class="type">Class</span> <span class="name self">simple-guess:query-variant-advisor</span></h1>
+
+              <p class="direct-superclasses"><code class="relevant"><a href="#dictionary_advisors-mixin">simple-guess:advisors-mixin</a></code>, <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code></p>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Slots:</p>
+                <pre><code>((<var>query-transformer</var> :initarg :query-transformer
+                    :reader <code class="relevant"><a href="#dictionary_query-transformer">simple-guess:query-transformer</a></code>
+                    :documentation ":query-transformer is required."))</code></pre>
+              </section>
+
+            </article>
+
+            <article class="function definition">
+
+              <h1><span class="type">Function</span> <span class="name self">simple-guess:query-variant-advisor</span></h1>
+
+              <p class="args-and-retvals"><var>inner-advisor</var> <var>query-transformer</var> =&gt; <var>advisor</var></p>
+
+              <section class="arguments-and-values">
+                <h1>Arguments and Values</h1>
+                <ul>
+                  <li><var>inner-advisor</var> -- An <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code>.</li>
+                  <li><var>query-transformer</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_f.htm#function_designator" target="_blank">function designator</a>.</li>
+                  <li><var>advisor</var> -- An <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code>.</li>
+                </ul>
+              </section>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Calls <code>(<code class="relevant"><a href="#dictionary_make-advisor">simple-guess:make-advisor</a></code> '<code class="relevant"><a href="#dictionary_query-variant-advisor">simple-guess:query-variant-advisor</a></code> :advisor <var>inner-advisor</var> :query-transformer <var>query-transformer</var>)</code>.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_query-transformer">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_query-transformer" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">query-transformer</a></span>
+              </span>
+            </h1>
+
+            <article class="generic-function reader definition">
+
+              <h1><span class="type">Generic Function</span> <span class="name self">simple-guess:query-transformer</span></h1>
+
+              <p class="args-and-retvals"><var>advisor</var> =&gt; <var>query-transformer</var></p>
+
+              <section class="description">
+                <h1>Description</h1>
+                <p>Returns the <var>query-transformer</var> that the <var>advisor</var> will funcall with the query before passing it to the inner advisor. A method is defined for <code class="relevant"><a href="#dictionary_query-variant-advisor">simple-guess:query-variant-advisor</a></code>.</p>
+              </section>
+
+            </article>
+
+          </section>
+
+          <section id="dictionary_macros">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#dictionary_macros" class="anchor">⚓</a>
+              </span>
+              <span class="breadcrumbs">
+                <a href="#dictionary">Dictionary</a>
+                <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">Macros</a></span>
+              </span>
+            </h1>
+
+            <nav class="tabs">
+              <ul>
+                <li><a href="#dictionary_macro-advisor"><span class="type">Class</span> <code>macro-advisor</code></a></li>
+                <li><a href="#dictionary_expansion"><span class="type">Generic Function</span> <code>expansion</code></a></li>
+              </ul>
+              <ul>
+                <li><a href="#dictionary_standard-macro-advisor"><span class="type">Class</span> <code>standard-macro-advisor</code></a></li>
+                <li><a href="#dictionary_compute-expansion"><span class="type">Generic Function</span> <code>compute-expansion</code></a></li>
+              </ul>
+              <ul>
+                <li><a href="#dictionary_query-variants-advisor"><span class="type">Class</span> <code>query-variants-advisor</code></a></li>
+                <li><a href="#dictionary_query-variants-advisor"><span class="type">Function</span> <code>query-variants-advisor</code></a></li>
+                <li><a href="#dictionary_query-transformers"><span class="type">Generic Function</span> <code>query-transformers</code></a></li>
+                <li><a href="#dictionary_grouping-function"><span class="type">Generic Function</span> <code>grouping-function</code></a></li>
+              </ul>
+            </nav>
+
+            <section id="dictionary_macro-advisor">
+
+              <h1 class="breadcrumbs-bar">
+                <span class="section-relative-nav">
+                  <a href="#dictionary_macro-advisor" class="anchor">⚓</a>
+                </span>
+                <span class="breadcrumbs">
+                  <a href="#dictionary" class="ellipsis">...</a>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_macros">Macros</a></span>
+                  <span class="crumb"><span class="s"> » </span><a class="here">macro-advisor</a></span>
+                </span>
+              </h1>
+
+              <article class="class definition">
+
+                <h1><span class="type">Class</span> <span class="name self">simple-guess:macro-advisor</span></h1>
+
+                <p class="direct-superclasses"><code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code></p>
+
+                <section class="description">
+                  <h1>Description</h1>
+                  <p>A higher-level <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code> whose semantics are implemented as a lower-level <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code>, its expansion.</p>
+                </section>
+
+              </article>
+
+            </section>
+
+            <section id="dictionary_expansion">
+
+              <h1 class="breadcrumbs-bar">
+                <span class="section-relative-nav">
+                  <a href="#dictionary_expansion" class="anchor">⚓</a>
+                </span>
+                <span class="breadcrumbs">
+                  <a href="#dictionary" class="ellipsis">...</a>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_macros">Macros</a></span>
+                  <span class="crumb"><span class="s"> » </span><a class="here">expansion</a></span>
+                </span>
+              </h1>
+
+              <article class="generic-function reader definition">
+
+                <h1><span class="type">Generic Function</span> <span class="name self">simple-guess:expansion</span></h1>
+
+                <p class="args-and-retvals"><var>macro-advisor</var> =&gt; <var>expansion</var></p>
+
+                <section class="description">
+                  <h1>Description</h1>
+                  <p>Returns the <var>expansion</var>, which is an <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code> that implements the semantics of the macro. Substituting the <var>expansion</var> for the <var>macro-advisor</var> must have equivalent semantics, else the consequences are undefined.</p>
+                </section>
+
+              </article>
+
+            </section>
+
+            <section id="dictionary_standard-macro-advisor">
+
+              <h1 class="breadcrumbs-bar">
+                <span class="section-relative-nav">
+                  <a href="#dictionary_standard-macro-advisor" class="anchor">⚓</a>
+                </span>
+                <span class="breadcrumbs">
+                  <a href="#dictionary" class="ellipsis">...</a>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_macros">Macros</a></span>
+                  <span class="crumb"><span class="s"> » </span><a class="here">standard-macro-advisor</a></span>
+                </span>
+              </h1>
+
+              <article class="class definition">
+
+                <h1><span class="type">Class</span> <span class="name self">simple-guess:standard-macro-advisor</span></h1>
+
+                <p class="direct-superclasses"><code class="relevant"><a href="#dictionary_macro-advisor">simple-guess:macro-advisor</a></code></p>
+
+                <section class="description">
+                  <h1>Description</h1>
+                  <p>Slots:</p>
+                  <pre><code>((<var>expansion</var> :reader <code class="relevant"><a href="#dictionary_expansion">simple-guess:expansion</a></code>
+            :type <code class="relevant"><a href="#dictionary_advisors_advisor">simple-guess:advisor</a></code>)
+            :documentation "Initialized by a shared-initialize :after method that assigns the result of calling <code class="relevant"><a href="#dictionary_compute-expansion">simple-guess:compute-expansion</a></code> on the macro to the slot.")</code></pre>
+
+                </section>
+
+              </article>
+
+            </section>
+
+            <section id="dictionary_compute-expansion">
+
+              <h1 class="breadcrumbs-bar">
+                <span class="section-relative-nav">
+                  <a href="#dictionary_compute-expansion" class="anchor">⚓</a>
+                </span>
+                <span class="breadcrumbs">
+                  <a href="#dictionary" class="ellipsis">...</a>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_macros">Macros</a></span>
+                  <span class="crumb"><span class="s"> » </span><a class="here">compute-expansion</a></span>
+                </span>
+              </h1>
+
+              <article class="generic-function definition">
+
+                <h1><span class="type">Generic Function</span> <span class="name self">simple-guess:compute-expansion</span></h1>
+
+                <p class="args-and-retvals"><var>macro-advisor</var> =&gt; <var>expansion</var></p>
+
+                <section class="arguments-and-values">
+                  <h1>Arguments and Values</h1>
+                  <ul>
+                    <li><var>macro-advisor</var> -- A <code class="relevant"><a href="#dictionary_macro-advisor">simple-guess:macro-advisor</a></code>.</li>
+                    <li><var>expansion</var> -- An <code class="relevant"><a href="#dictionary_advisor">advisor</a></code>.</li>
+                  </ul>
+                </section>
+
+                <section class="description">
+                  <h1>Description</h1>
+                  <p>Computes the <var>expansion</var> that will subsequently be returned when calling <code class="relevant"><a href="#dictionary_expansion">simple-guess:expansion</a></code> on <var>macro-advisor</var>.</p>
+                </section>
+
+                <section class="methods">
+                  <h1>Methods</h1>
+
+                  <article class="method definition" id="dictionary_compute-expansion_query-variants-advisor">
+
+                    <h1><span class="type">Method</span> <span class="name self">compute-expansion</span></h1>
+
+                    <p class="args-and-retvals">(<var>advisor</var> <code class="specializer relevant"><a href="#dictionary_query-variants-advisor">simple-guess:query-variants-advisor</a></code>) =&gt; <var>expansion</var></p>
+
+                    <section class="description">
+                      <h1>Description</h1>
+                      <p>Let <var>inner-advisor</var> be the <code class="relevant"><a href="#dictionary_advisors_advisor">simple-guess:advisor</a></code> of <var>advisor</var>.</p>
+                      <p>For each <var>query-transformer</var> in the <code class="relevant"><a href="#dictionary_query-transformers">simple-guess:query-transformers</a></code> of <var>advisor</var>, call <code>(<code class="relevant"><a href="#dictionary_query-variant-advisor">simple-guess:query-variant-advisor</a></code> <var>inner-advisor</var> <var>query-transformer</var>)</code>.</p>
+                      <p>Return the result of applying the <code class="relevant"><a href="#dictionary_grouping-function">simple-guess:grouping-function</a></code> of <var>advisor</var> to the list produced in the previous step.</p>
+                    </section>
+
+                  </article>
+
+                </section>
+
+              </article>
+
+            </section>
+
+            <section id="dictionary_query-variants-advisor">
+
+              <h1 class="breadcrumbs-bar">
+                <span class="section-relative-nav">
+                  <a href="#dictionary_query-variants-advisor" class="anchor">⚓</a>
+                </span>
+                <span class="breadcrumbs">
+                  <a href="#dictionary" class="ellipsis">...</a>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_macros">Macros</a></span>
+                  <span class="crumb"><span class="s"> » </span><a class="here">query-variants-advisor</a></span>
+                </span>
+              </h1>
+
+              <article class="class definition">
+
+                <h1><span class="type">Class</span> <span class="name self">simple-guess:query-variants-advisor</span></h1>
+
+                <p class="direct-superclasses"><code class="relevant"><a href="#dictionary_advisor-mixin">simple-guess:advisor-mixin</a></code>, <code class="relevant"><a href="#dictionary_standard-macro-advisor">simple-guess:standard-macro-advisor</a></code></p>
+
+                <section class="description">
+                  <h1>Description</h1>
+                  <p>Slots:</p>
+                  <pre><code>((<var>query-transformers</var> :initarg :query-transformers
+                     :reader <code class="relevant"><a href="#dictionary_query-transformers">simple-guess:query-transformers</a></code>
+                     :documentation ":query-transformers is required.")
+ (<var>grouping-function</var> :initarg :grouping-function
+                    :reader <code class="relevant"><a href="#dictionary_grouping-function">simple-guess:grouping-function</a></code>
+                    :type (or function symbol)
+                    :initform #'<code class="relevant"><a href="#dictionary_eager-advisor">simple-guess:eager-advisor</a></code>))</code></pre>
+                </section>
+
+              </article>
+
+              <article class="function definition">
+
+                <h1><span class="type">Function</span> <span class="name self">simple-guess:query-variants-advisor</span></h1>
+
+                <p class="args-and-retvals"><var>inner-advisor</var> <var>query-transformers</var> &amp;key (<var>group</var> <code class="relevant"><a href="#dictionary_eager-advisor">simple-guess:eager-advisor</a></code>) =&gt; <var>advisor</var></p>
+
+                <section class="arguments-and-values">
+                  <h1>Arguments and Values</h1>
+                  <ul>
+                    <li><var>inner-advisor</var> -- An <code class="relevant"><a href="#dictionary_advisor">simple-guess:advisor</a></code>.</li>
+                    <li><var>query-transformers</var> -- A list of <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_f.htm#function_designator" target="_blank">function designator</a>s.</li>
+                    <li><var>group</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_f.htm#function_designator" target="_blank">function designator</a>.</li>
+                    <li><var>advisor</var> -- A <code class="relevant"><a href="#dictionary_query-variants-advisor">simple-guess:query-variants-advisor</a></code>.</li>
+                  </ul>
+                </section>
+
+                <section class="description">
+                  <h1>Description</h1>
+                  <p>Calls <code>(<code class="relevant"><a href="#dictionary_make-advisor">simple-guess:make-advisor</a></code> '<code class="relevant"><a href="#dictionary_query-variants-advisor">simple-guess:query-variants-advisor</a></code><br />:advisor <var>inner-advisor</var> :query-transformers <var>query-transformers</var> :grouping-function <var>group</var>)</code>.</p>
+                </section>
+
+              </article>
+
+            </section>
+
+            <section id="dictionary_query-transformers">
+
+              <h1 class="breadcrumbs-bar">
+                <span class="section-relative-nav">
+                  <a href="#dictionary_query-transformers" class="anchor">⚓</a>
+                </span>
+                <span class="breadcrumbs">
+                  <a href="#dictionary" class="ellipsis">...</a>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_macros">Macros</a></span>
+                  <span class="crumb"><span class="s"> » </span><a class="here">query-transformers</a></span>
+                </span>
+              </h1>
+
+              <article class="generic-function reader definition">
+
+                <h1><span class="type">Generic Function</span> <span class="name self">simple-guess:query-transformers</span></h1>
+
+                <p class="args-and-retvals"><var>advisor</var> =&gt; <var>query-transformers</var></p>
+
+                <section class="description">
+                  <h1>Description</h1>
+                  <p>Returns the list of <var>query-transformers</var> that will be used to initialize as many inner <code class="relevant"><a href="#dictionary_query-variant-advisor">simple-guess:query-variant-advisor</a></code>. A method is defined for <code class="relevant"><a href="#dictionary_query-variant-advisor">simple-guess:query-variants-advisor</a></code>.</p>
+                </section>
+
+              </article>
+
+            </section>
+
+            <section id="dictionary_grouping-function">
+
+              <h1 class="breadcrumbs-bar">
+                <span class="section-relative-nav">
+                  <a href="#dictionary_grouping-function" class="anchor">⚓</a>
+                </span>
+                <span class="breadcrumbs">
+                  <a href="#dictionary" class="ellipsis">...</a>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_advisors">Advisors</a></span>
+                  <span class="crumb"><span class="s"> » </span><a href="#dictionary_macros">Macros</a></span>
+                  <span class="crumb"><span class="s"> » </span><a class="here">grouping-function</a></span>
+                </span>
+              </h1>
+
+              <p>Returns the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_f.htm#function_designator" target="_blank">function designator</a> that will be applied to the <code class="relevant"><a href="#dictionary_query-transformers">simple-guess:query-transformers</a></code> to group them. A method is defined for <code class="relevant"><a href="#dictionary_query-variant-advisor">simple-guess:query-variants-advisor</a></code>.</p>
+
+            </section>
+
+            <nav class="end-of-section-indicator">
+              <a href="#dictionary_macros">
+                "<span>Macros</span>" end.
+              </a>
+            </nav>
+
+          </section>
+
+          <nav class="end-of-section-indicator">
+            <a href="#dictionary_advisors">
+              "<span>Advisors</span>" end.
+            </a>
+          </nav>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#dictionary">
+            "<span>Dictionary</span>" end.
+          </a>
+        </nav>
+
+      </section>
+
+    </main>
+
+    <footer id="footer">
+      <div class="back-to-top left">
+        <a href="#">⬆</a>
+      </div>
+      <div class="main">
+        <a href="https://validator.w3.org/check?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Flibraries%2Fsimple-guess%2F">✔ HTML5</a>
+        <a href="https://www.hexstreamsoft.com/README">✔ Public Domain</a>
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Flibraries%2Fsimple-guess%2F">✔ CSS3</a>
+        <a>✔ Mobile-friendly</a>
+      </div>
+      <div class="back-to-top right">
+        <a href="#">⬆</a>
+      </div>
+    </footer>
+
+  </body>
+</html>
